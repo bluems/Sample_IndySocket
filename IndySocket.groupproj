@@ -9,6 +9,9 @@
         <Projects Include="Server.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="IndyHTTP.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="Server:Make">
         <MSBuild Projects="Server.dproj" Targets="Make"/>
     </Target>
+    <Target Name="IndyHTTP">
+        <MSBuild Projects="IndyHTTP.dproj"/>
+    </Target>
+    <Target Name="IndyHTTP:Clean">
+        <MSBuild Projects="IndyHTTP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IndyHTTP:Make">
+        <MSBuild Projects="IndyHTTP.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Client;Server"/>
+        <CallTarget Targets="Client;Server;IndyHTTP"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Client:Clean;Server:Clean"/>
+        <CallTarget Targets="Client:Clean;Server:Clean;IndyHTTP:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Client:Make;Server:Make"/>
+        <CallTarget Targets="Client:Make;Server:Make;IndyHTTP:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
