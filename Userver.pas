@@ -35,23 +35,18 @@ end;
 
 procedure TForm1.TCPServerExecute(AContext: TIdContext);
 var
-  {ip:String;
-  guid:String;
-  State:String;
-  Amp:String;}
-  packet:string;
+  hello, guid, bool, num:string;
 begin
   with AContext.Connection do
   begin
-    {ip:=Socket.ReadLn;
-    guid:=Socket.ReadLn;
-    State:=Socket.ReadLn;
-    Amp:=Socket.ReadLn;}
-    packet:=socket.ReadLn;
-    Memo1.text:=Memo1.Text+{'ip : '+ip+', guid : '+guid+', state : '+state+', amp : '+amp+#13#10;}
-                  packet+#13#10;
+    hello:=socket.ReadLn;
+    guid:=socket.ReadLn;
+    bool:=socket.ReadLn;
+    num:=socket.ReadLn;
+    memo1.Lines.Append(hello+guid+bool+num);
+    //Memo1.text:=Memo1.Text+;
     //   Memo1.Text:=Memo1.Text+'Message : '+ip;
-    Socket.WriteLnRFC(copy(packet,9,ByteToCharLen(packet,length(packet))-9));
+    Socket.WriteLn(copy(guid,11,ByteToCharLen(guid,length(guid))-11));
     Disconnect;
   end;
 end;

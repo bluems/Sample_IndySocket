@@ -19,9 +19,7 @@ object Form1: TForm1
     Top = 32
     Width = 545
     Height = 337
-    Lines.Strings = (
-      'Memo1')
-    ScrollBars = ssHorizontal
+    ScrollBars = ssVertical
     TabOrder = 0
   end
   object TCPServer: TIdTCPServer
