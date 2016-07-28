@@ -10,9 +10,9 @@ uses
 type
   TForm2 = class(TForm)
     TCPClient: TIdTCPClient;
-    ListBox1: TListBox;
     Panel1: TPanel;
     Button1: TButton;
+    Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
@@ -34,11 +34,11 @@ begin
     Connect;
     try
 
-      TCPClient.Socket.WriteLnRFC('Hello');
-      TCPClient.Socket.WriteLnRFC('{FE43E8F1-180F-46E8-880E-4A96914F13F8}');
-      TCPClient.Socket.WriteLnRFC('1');
-      TcpClient.Socket.WriteLnRFC('70');
-      ListBox1.Items.Add(TCPClient.Socket.Readln);
+      TCPClient.Socket.WriteLn('Hello');
+      TCPClient.Socket.WriteLn('{FE43E8F1-180F-46E8-880E-4A96914F13F8}');
+      TCPClient.Socket.WriteLn('1');
+      TcpClient.Socket.WriteLn('70');
+      Memo1.Text:=Memo1.Text+TCPClient.Socket.Readln+#13#10;
       Disconnect;
     finally
       Disconnect;

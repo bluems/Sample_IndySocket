@@ -13,14 +13,6 @@ object Form2: TForm2
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object ListBox1: TListBox
-    Left = 0
-    Top = 40
-    Width = 449
-    Height = 161
-    ItemHeight = 13
-    TabOrder = 0
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -28,7 +20,7 @@ object Form2: TForm2
     Height = 41
     Align = alTop
     Caption = 'Panel1'
-    TabOrder = 1
+    TabOrder = 0
     object Button1: TButton
       Left = 16
       Top = 9
@@ -38,6 +30,15 @@ object Form2: TForm2
       TabOrder = 0
       OnClick = Button1Click
     end
+  end
+  object Memo1: TMemo
+    Left = 0
+    Top = 41
+    Width = 447
+    Height = 160
+    Align = alClient
+    ScrollBars = ssVertical
+    TabOrder = 1
   end
   object TCPClient: TIdTCPClient
     ConnectTimeout = 0
